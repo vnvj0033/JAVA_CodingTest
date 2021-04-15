@@ -7,10 +7,25 @@ public class DailyTemperature {
 
     public static void main(String[] args) {
         int[] nums = {73, 74, 75, 71, 69, 72, 76, 73};
-        int[] res = solveStack(nums);
+        int[] res = solve(nums);
 
         for(int i : res)
             System.out.print(i+" ");
+    }
+
+    private static int[] solve(int[] tempers) {
+        int[] result = new int[tempers.length];
+
+        for (int i = 0; i < tempers.length; i++){
+            for (int j = i + 1; j < tempers.length - 1; j++){
+                if (tempers[i] < tempers[j]){
+                    result[i] = j - 1;
+                    break;
+                }
+            }
+        }
+
+        return result;
     }
 
     public static int[] solveStack(int[] temperatures) {
