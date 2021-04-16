@@ -25,7 +25,7 @@ public class MeetingRooms {
         return true;
     }
 
-    static class Interval implements Comparable<Interval>{
+    private static class Interval implements Comparable<Interval>{
         int start;
         int end;
 

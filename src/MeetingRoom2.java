@@ -59,7 +59,7 @@ public class MeetingRoom2 {
 
     }
 
-    static class Interval implements Comparable<Interval>{
+    private static class Interval implements Comparable<Interval>{
         int start, end;
 
         Interval(int s, int e) {
