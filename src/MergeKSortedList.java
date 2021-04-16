@@ -20,7 +20,7 @@ public class MergeKSortedList {
         list[1] = l2;
         list[2] = l3;
 
-        ListNode result = new MergeKSortedList().mergeKLists(list);
+        ListNode result = new MergeKSortedList().solve(list);
 
         while (result != null) {
             System.out.println(result.val);
@@ -28,7 +28,7 @@ public class MergeKSortedList {
         }
     }
 
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode solve(ListNode[] lists) {
 
         Queue<ListNode> queue = new PriorityQueue<>();
 
