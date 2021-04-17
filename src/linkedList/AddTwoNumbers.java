@@ -1,3 +1,4 @@
+package linkedList;
 
 /**
  * 노드
