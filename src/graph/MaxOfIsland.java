@@ -1,3 +1,5 @@
+package graph;
+
 public class MaxOfIsland {
 
     public static void main(String[] args) {

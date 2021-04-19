@@ -1,3 +1,5 @@
+package graph;
+
 public class NumberOfIsland_dfs {
 
     public static void main(String[] args) {

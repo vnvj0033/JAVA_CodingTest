@@ -1,3 +1,5 @@
+package graph;
+
 public class WordSearch {
     public static void main(String[] args) {
         char[][] grid = {
