@@ -4,6 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 문자열에 가능한 아나그램 위치 찾기
+ * input :
+ *     txt = "BACDGABCDA"
+ *     pat = "ABCD"
+ *
+ * output : [0, 5, 6]
+ *
+ * txt에서 pat의 원소가 순서대로 모두 포함한 위치를 반환한다.
+ * */
+
 public class FindAllAnagrams {
     public static void main(String args[]) {
         String txt = "BACDGABCDA";
@@ -19,20 +30,19 @@ public class FindAllAnagrams {
         if (txt == null || txt.length() == 0 || pat == null || pat.length() == 0 || txt.length() < pat.length())
             return result;
 
-        char[] patArr = pat.toCharArray();
         char[] txtArr = new char[pat.length()];
+        char[] patArr = pat.toCharArray();
         Arrays.sort(patArr);
 
         for (int i = 0; i < txt.length() - pat.length() + 1; i++) {
             for (int j = 0; j < pat.length(); j++)
-                txtArr[j] = txt.charAt(j+i);
+                txtArr[j] = txt.charAt(j+i); // txtArr에는 pat만큼의 길이만 담는다.
 
             Arrays.sort(txtArr);
 
             if (Arrays.equals(txtArr, patArr))
                 result.add(i);
         }
-
         return result;
     }
 
