@@ -5,14 +5,22 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Stack;
 
+/**
+ * 일별 온도에서 다음 높은 온도까지의 일 구하기
+ * input :
+ *     nums = {73, 74, 75, 71, 69, 72, 76, 73}
+ *
+ * output : 0 1 5 4 4 5 0 0
+ * */
+
 public class DailyTemperature {
 
     public static void main(String[] args) {
         int[] nums = {73, 74, 75, 71, 69, 72, 76, 73};
-        int[] res = solve(nums);
+        int[] results = solve(nums);
 
-        for(int i : res)
-            System.out.print(i+" ");
+        for(int result : results)
+            System.out.print(result+" ");
     }
 
     private static int[] solve(int[] tempers) {
