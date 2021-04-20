@@ -33,12 +33,12 @@ public class Permutation {
             lists.add(list);
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (cur.contains(nums[i]))
+        for (int num : nums) {
+            if (cur.contains(num))
                 continue;
-            cur.add(nums[i]);
+            cur.add(num);
             dfs(nums, lists, cur);
-            cur.remove(cur.size() - 1);
+            cur.remove(cur.size() - 1); // 마지막 삭제하여 다음에 배제하기
         }
     }
 }
