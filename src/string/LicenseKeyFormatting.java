@@ -1,5 +1,16 @@
 package string;
 
+/**
+ * 문자열 s의 -를 제외한 문자를 뒤에서k 마다 -를 추가한다.
+ * input :
+ *     S = "5Fsff3Z-2e-921-j-qww"
+ *     k = 6
+ *
+ * output : 5FSF-F3Z2E9-21JQWW
+ *
+ * replace를 이용해 - 제거 sb를 사용해 뒤부터 k마다 - 추가
+ * */
+
 public class LicenseKeyFormatting {
 
     public static void main(String[] args) {
