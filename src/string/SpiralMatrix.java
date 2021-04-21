@@ -3,6 +3,19 @@ package string;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 배열 탐색을 왼쪽 아래 오른쪽 위를 반복하여 순서를 구한다.
+ *
+ * intput :
+ *     matrix = {
+ *         {1, 2, 3, 13},
+ *         {4, 5, 6, 14},
+ *         {7, 8, 9, 15},
+ *         {10, 11, 12, 16}};
+ *
+ * output : {1, 2, 3, 13, 14, 15, 16, 12, 11, 10, 7, 4, 5, 6, 9, 8}
+ * */
+
 public class SpiralMatrix {
 
     public static void main(String[] args) {
@@ -11,6 +24,7 @@ public class SpiralMatrix {
                 {4, 5, 6, 14},
                 {7, 8, 9, 15},
                 {10, 11, 12, 16}};
+
         List<Integer> result = new SpiralMatrix().solve(matrix);
         System.out.println(result);
     }
