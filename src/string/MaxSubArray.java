@@ -1,5 +1,15 @@
 package string;
 
+/**
+ * 리스트 숫자에서 연속으로 더하여서 가장 큰 수를 구한다.
+ *
+ * intput :
+ *     nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4}
+ * output : 6
+ *
+ * 4-1+2+1 = 6
+ */
+
 public class MaxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
@@ -12,6 +22,7 @@ public class MaxSubArray {
         int max = nums[0];
 
         for (int i = 1; i < nums.length; i++) {
+            System.out.println(newSum + " " + max);
             newSum = Math.max(newSum + nums[i], nums[i]);
             max = Math.max(max, newSum);
         }
