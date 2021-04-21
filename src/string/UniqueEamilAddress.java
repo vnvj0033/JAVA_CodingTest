@@ -3,6 +3,22 @@ package string;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 여러개의 이메일 주소가 주어지는데 실제로 전달받는 메일은 몇개인지
+ * '@'를 기준으로 앞에는 Local Name, 뒤는 Domain Name
+ * Local Name '.'은 무시
+ * +이후는 제거
+ *
+ * input :
+ *     emails = {"test.email+alex@leetcode.com",
+ *             "test.e.mail+bob.cathy@leetcode.com",
+ *             "testemail+david@lee.tcode.com"}
+ *
+ * output : 2
+ *
+ * [testemail@leetcode.com, testemail@lee.tcode.com]
+ * */
+
 public class UniqueEamilAddress {
 
     public static void main(String[] args) {
@@ -23,6 +39,7 @@ public class UniqueEamilAddress {
             String domainName = getDomainName(email);
             uniqueEmails.add(localName + "@" + domainName);
         }
+
         return uniqueEmails.size();
     }
 
