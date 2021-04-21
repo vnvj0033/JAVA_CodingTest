@@ -5,11 +5,20 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 문자열 str중에 2가지 알바벳만 가진 가장 긴 길이
+ *
+ * input :
+ *     str = "ccaabba"
+ *
+ * output : 5
+ * */
+
 public class LongestSubMostTwoDist {
 
     public static void main(String[] args) {
         String str = "ccaabba";
-        System.out.println(new LongestSubMostTwoDist().solve2(str));
+        System.out.println(new LongestSubMostTwoDist().solve(str));
     }
 
     public int solve(String str) {
