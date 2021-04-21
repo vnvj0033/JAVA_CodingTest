@@ -2,13 +2,24 @@ package string;
 
 import java.util.Arrays;
 
+/**
+ * 미팅룸 시간이 주어질때 미팅룸 하나에 예약이 가능한지
+ *
+ * input :
+ *     in1 = new Interval(15, 20);
+ *     in2 = new Interval(5, 10);
+ *     in3 = new Interval(0, 30);
+ *
+ * output : false
+ * */
+
 public class MeetingRooms {
     public static void main(String[] args) {
         MeetingRooms a = new MeetingRooms();
 
         Interval in1 = new Interval(15, 20);
-        Interval in3 = new Interval(0, 30);
         Interval in2 = new Interval(5, 10);
+        Interval in3 = new Interval(0, 30);
 
         Interval[] intervals = {in1, in2, in3};
         System.out.println(a.solve(intervals));
