@@ -3,6 +3,19 @@ package string;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 두 수의 합이 지정값의 위치를 찾기
+ *
+ * input :
+ *     nums = {2, 8, 11, 21}
+ *     target = 10
+ *
+ * output : {1, 2}
+ *
+ * 1번과 2번 위치
+ * 2 + 8 = 10
+ * */
+
 public class TwoSum {
 
     public static void main(String[] args) {
