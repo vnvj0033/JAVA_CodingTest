@@ -2,6 +2,18 @@ package string;
 
 import java.util.*;
 
+/**
+ * 미팅룸 시간이 주어질떄 겹치는 예약시간을 합친다.
+ *
+ * input :
+ *     in1 = new Interval(1, 3);
+ *     in2 = new Interval(2, 6);
+ *     in3 = new Interval(8, 10);
+ *     in4 = new Interval(15, 18);
+ *
+ * output : {{1, 6}, {8, 10}, {15, 18}}
+ * */
+
 public class MergeInterval {
 
     public static void main(String[] args) {
@@ -15,6 +27,7 @@ public class MergeInterval {
         intervals.add(in2);
         intervals.add(in3);
         intervals.add(in4);
+
         List<Interval> list = new MergeInterval().solve(intervals);
 
         for (Interval in : list)
