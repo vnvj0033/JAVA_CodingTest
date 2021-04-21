@@ -1,5 +1,24 @@
 package string;
 
+/**
+ * 담장에 물이 차 있을경우 얼마만큼 물이 차있는지
+ *
+ * input :
+ *     nums = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
+ *
+ * output : 6
+ *
+ *        #
+ *    #000##0#
+ *  #0##0######
+ *
+ * 웅덩이 갯수 (0) = 6
+ *
+ * 왼쪽 벽을 탐색하며 지점에서 이전 고점을 벽으로 선언
+ * 오른쪽 벽을 탐색하며 지점에서 이전 고점을 벽으로
+ * 양쪽 벽의 높이중 낮은 벽의 높이 - 현재 벽 수 = 물 웅덩이 수
+ * */
+
 public class TrappingRainWater {
 
     public static void main(String[] args) {
@@ -10,6 +29,7 @@ public class TrappingRainWater {
 
     public int solve(int[] height) {
         int result = 0;
+
         if (height == null || height.length <= 2)
             return result;
 
@@ -30,6 +50,7 @@ public class TrappingRainWater {
 
         max = height[height.length - 1];
         rightHeight[height.length - 1] = height[height.length - 1];
+
         for (int i = height.length - 2; i >= 0; i--) {
             if (height[i] < max) {
                 rightHeight[i] = max;
@@ -43,6 +64,5 @@ public class TrappingRainWater {
             result += Math.min(leftHeight[i], rightHeight[i]) - height[i];
 
         return result;
-
     }
 }
