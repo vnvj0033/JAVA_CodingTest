@@ -13,7 +13,7 @@ package string;
 public class MaxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int result = new MaxSubArray().solve(nums);
+        int result = new MaxSubArray().maxSubArray_dp(nums);
         System.out.println(result);
     }
 
@@ -22,7 +22,6 @@ public class MaxSubArray {
         int max = nums[0];
 
         for (int i = 1; i < nums.length; i++) {
-            System.out.println(newSum + " " + max);
             newSum = Math.max(newSum + nums[i], nums[i]);
             max = Math.max(max, newSum);
         }
@@ -36,7 +35,7 @@ public class MaxSubArray {
         int max = dp[0];
 
         for (int i = 1; i < n; i++) {
-            dp[i] = A[i] + (dp[i - 1] > 0 ? dp[i - 1] : 0);
+            dp[i] = A[i] + (Math.max(dp[i - 1], 0)); // 이전 것이 0보다 크면 더하고 작으면 자신부터 다시 시작
             max = Math.max(max, dp[i]);
         }
 

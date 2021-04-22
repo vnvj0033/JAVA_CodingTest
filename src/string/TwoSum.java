@@ -21,10 +21,19 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] nums = {2, 8, 11, 21};
         int target = 10;
-        int[] result = solve(nums, target);
+        int[] result = solve2(nums, target);
 
         for (int i : result)
             System.out.println(i);
+    }
+
+    public static int[] solve2(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++)
+            for (int j = i; j < nums.length; j++)
+                if (nums[i] + nums[j] == target)
+                    return new int[] {i+1, j+1};
+
+        return new int[] {};
     }
 
     public static int[] solve(int[] nums, int target) {

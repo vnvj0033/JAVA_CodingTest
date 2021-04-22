@@ -1,6 +1,7 @@
 package string;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * 미팅룸 시간이 주어질때 미팅룸 하나에 예약이 가능한지

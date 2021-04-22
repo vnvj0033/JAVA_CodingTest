@@ -22,25 +22,24 @@ public class LongestSubMostTwoDist {
     }
 
     public int solve(String str) {
-        int start = 0, end = 0, counter = 0, length = 0;
+        int start = 0, end = 0, max = 0;
         Map<Character, Integer> map = new HashMap<>();
 
         while (end < str.length()) {
             char endChar = str.charAt(end);
             map.put(endChar, map.getOrDefault(endChar, 0) + 1);
-            if (map.get(endChar) == 1) counter++;
             end++;
 
-            while (counter > 2) {
+            while (map.size() > 2) {
                 char startChar = str.charAt(start);
                 map.put(startChar, map.get(startChar) - 1);
-                if (map.get(startChar) == 0) counter--;
+                if (map.get(startChar) == 0) map.remove(startChar);
                 start++;
             }
 
-            length = Math.max(length, end - start);
+            max = Math.max(max, end - start);
         }
-        return length;
+        return max;
     }
 
     int solve2(String str) {
@@ -59,8 +58,8 @@ public class LongestSubMostTwoDist {
                 set = new HashSet<>();
                 max = Math.max(i - start + 1, max);
                 i = nextIndex - 1;
-                firstSizeTow = false;
                 firstSizeOne = false;
+                firstSizeTow = false;
                 continue;
             } else if (set.size() == 1 && !firstSizeOne) {
                 firstSizeOne = true;
