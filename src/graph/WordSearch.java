@@ -7,9 +7,9 @@ public class WordSearch {
                 {'S', 'F', 'C', 'S'},
                 {'A', 'D', 'E', 'E'}
         };
-        String word = "ABCCEED";
+        String word = "ABCCEESE";
         WordSearch wordSearch = new WordSearch();
-        System.out.println(wordSearch.solve(grid, word));
+        System.out.println(wordSearch.solve2(grid, word));
     }
 
     int[][] offset = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -52,5 +52,41 @@ public class WordSearch {
         visited[x][y] = false;
         return false;
 
+    }
+
+    public boolean solve2(char[][] grid, String word) {
+
+        if (grid == null || grid.length == 0 || grid[0].length == 0)
+            return false;
+
+        m = grid.length;
+        n = grid[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (dfs2(grid, i, j, 0, word))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean dfs2(char[][] grid, int x, int y, int start, String word) {
+
+        if (start == word.length()) return true;
+        if (x < 0 || x >= m || y < 0 || y >= n) return false; // x30 m:4
+        if (grid[x][y] == '0') return false;
+        if (grid[x][y] != word.charAt(start)) return false;
+
+        grid[x][y] = '0';
+
+        for (int[] dir : offset) {
+            int dx = x + dir[0];
+            int dy = y + dir[1];
+
+            if (dfs2(grid, dx, dy, start + 1, word))
+                return true;
+        }
+        return false;
     }
 }
