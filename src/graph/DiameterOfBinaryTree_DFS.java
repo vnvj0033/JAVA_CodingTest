@@ -1,7 +1,10 @@
 package graph;
 
 import java.util.Stack;
-
+/**
+ * 트리 높이 구하기 - DFS
+ * dfs 스택 말고 스택을 하나 더 만들어 높이를 저장하고 max를 구한다.
+ * */
 public class DiameterOfBinaryTree_DFS {
 
     public static void main(String[] args) {

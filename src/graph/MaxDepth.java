@@ -1,5 +1,10 @@
 package graph;
 
+/**
+ * 재귀호출로 dfs 사용
+ * 호출에서 노드가 null이면 + 1 전달
+ *  */
+
 public class MaxDepth {
 
     public static void main(String[] args) {

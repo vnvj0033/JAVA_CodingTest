@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 트리 높이 구하기
+ * 트리 높이 구하기 - 일반적인 bfs 사용
  * */
 
 public class DiameterOfBinaryTree_BFS {
