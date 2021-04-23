@@ -31,7 +31,7 @@ public class LetterCombination {
         result.add("");
 
         for (int i = 0; i < digits.length(); i++)
-            result = combine(digitletter[digits.charAt(i) - '0'], result);// digits.charAt(i) - '0' 형변환 -> 2, 3
+            result = combine(digitletter[Integer.parseInt(String.valueOf(digits.charAt(i)))], result);
 
         return result;
     }

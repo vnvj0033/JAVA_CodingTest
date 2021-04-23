@@ -25,10 +25,8 @@ public class Permutation {
         return lists;
     }
 
-    int count = 0;
-
     private void dfs(int[] nums, List<List<Integer>> lists, List<Integer> cur) {
-        count++;
+
 
         if (cur.size() == nums.length) {
             List<Integer> list = new ArrayList<>(cur);
