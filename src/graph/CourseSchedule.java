@@ -1,7 +1,9 @@
 package graph;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * 위상정렬 문제 : 사이클이 없는 그래프의 문제 풀이
@@ -25,26 +27,34 @@ import java.util.Queue;
 public class CourseSchedule {
 
     public static void main(String[] args) {
-        int course = 4;
-        int[][] nums = { { 1, 0 },
+        int[][] nums = {
+                { 1, 0 },
                 { 2, 1 },
                 { 3, 2 } };
 
         CourseSchedule a = new CourseSchedule();
 
-        System.out.println(a.solve(course, nums));
+        System.out.println(a.solve(nums));
     }
 
-    public boolean solve(int courseNumber, int[][] nums) {
+    public boolean solve(int[][] nums) {
+
+        Set<Integer> set = new HashSet<>();
+
+        for (int[] num : nums)
+            for (int n : num)
+                set.add(n);
+
+        int courseNumber = set.size();
+        System.out.println(courseNumber);
+
         if (courseNumber <= 0)
             return false;
-
+        ///////////////////////////////////////
         Queue<Integer> queue = new LinkedList<>();
         int[] inDegree = new int[courseNumber];
 
         // 1. inDegree : [1, 1, 1, 0]
-        int numsLength = nums.length;
-
         for (int[] num : nums) inDegree[num[1]]++;
 
         // 2.queue에 0인 값 찾아서 넣기
@@ -58,8 +68,7 @@ public class CourseSchedule {
         while (!queue.isEmpty()) {
             int zeroVal = queue.poll();
 
-            for (int i = 0; i < numsLength; i++) {
-
+            for (int i = 0; i < nums.length; i++) {
                 if (zeroVal == nums[i][0]) {
                     System.out.println("=============");
                     System.out.println("zeroVal "+zeroVal+" i "+i);
