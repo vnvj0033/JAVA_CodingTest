@@ -3,7 +3,7 @@ package dp;
 public class ClimbingStairs {
 
     public static void main(String[] args) {
-        int n = 5;
+        int n = 15;
         System.out.println(climbStairs(n));
     }
 
@@ -22,6 +22,9 @@ public class ClimbingStairs {
 
         for (int i = 3; i <= n; i++)
             dp[i] = dp[i - 1] + dp[i - 2];
+
+        for (int d : dp)
+        System.out.println(d);
 
         return dp[n];
     }

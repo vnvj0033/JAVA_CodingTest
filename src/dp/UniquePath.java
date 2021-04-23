@@ -1,7 +1,7 @@
 package dp;
 
 /**
- * 최단 경로 찾는 문제
+ * 최단 경로가 가능한 경로의 수 찾는 문제
  * */
 
 public class UniquePath {

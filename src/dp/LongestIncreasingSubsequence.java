@@ -1,6 +1,7 @@
 package dp;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class LongestIncreasingSubsequence {
 
@@ -29,5 +30,21 @@ public class LongestIncreasingSubsequence {
             result = Math.max(result, dp[i]);
         }
         return result;
+    }
+
+    public int solve2(int[] nums) {
+
+        if (nums == null || nums.length == 0)
+            return 0;
+
+        Stack<Integer> stack = new Stack<>();
+        stack.add(nums[0]);
+
+        for (int i = 1; i < nums.length; i++) {
+            if (stack.peek() < nums[i])
+                stack.add(nums[i]);
+        }
+
+        return stack.size();
     }
 }
