@@ -1,4 +1,4 @@
-package codingstudy;
+package codingstudy.greedy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
