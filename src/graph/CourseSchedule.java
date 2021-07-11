@@ -10,10 +10,8 @@ import java.util.Set;
  * CourseSchedule : 코스를 수강하기 위한 전제조건 문제 풀이
  * [0, 1]이 주어지면 0을 수강하기 위해 1을 완료 해야함
  * num 배열이 위상 정렬인지 true, false 반환
- * course는 수업 갯수
  *
  * input :
- *   course = 4
  *   num = { { 1, 0 },
  *           { 2, 1 },
  *           { 3, 2 } }
@@ -46,21 +44,17 @@ public class CourseSchedule {
                 set.add(n);
 
         int courseNumber = set.size();
-        System.out.println(courseNumber);
 
         if (courseNumber <= 0)
             return false;
-        ///////////////////////////////////////
+
+
         Queue<Integer> queue = new LinkedList<>();
         int[] inDegree = new int[courseNumber];
 
-        // 1. inDegree : [1, 1, 1, 0]
         for (int[] num : nums) inDegree[num[1]]++;
 
-        // 2.queue에 0인 값 찾아서 넣기
-        int completeLength = inDegree.length;
-
-        for (int i = 0; i < completeLength; i++)
+        for (int i = 0; i < inDegree.length; i++)
             if (inDegree[i] == 0)
                 queue.offer(i);
 
@@ -68,14 +62,12 @@ public class CourseSchedule {
         while (!queue.isEmpty()) {
             int zeroVal = queue.poll();
 
-            for (int i = 0; i < nums.length; i++) {
-                if (zeroVal == nums[i][0]) {
-                    System.out.println("=============");
-                    System.out.println("zeroVal "+zeroVal+" i "+i);
-                    inDegree[nums[i][1]]--;
+            for (int[] num : nums) {
+                if (zeroVal == num[0]) {
+                    inDegree[num[1]]--; // 출발의 도착지 0으로
 
-                    if (inDegree[nums[i][1]] == 0)
-                        queue.offer(nums[i][1]);
+                    if (inDegree[num[1]] == 0)
+                        queue.offer(num[1]);
                 }
             }
         }
