@@ -5,31 +5,28 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-
-
-
 public class Development {
-    public static void main(String[] args) {
-        Development d = new Development();
-
-        int[] progresses = new int[] {0,0,0,0};
-        int[] speeds = new int[] {100,50,34,25};
-
-        int[] reset = d.solution(progresses, speeds);
-
-        System.out.println(reset);
-    }
+    Queue<Integer> progressQueue = new LinkedList<>();
+    Queue<Integer> speedQueue = new LinkedList<>();
 
     public int[] solution(int[] progresses, int[] speeds) {
-        List<Integer> results = new ArrayList<>();
 
-        Queue<Integer> progressQueue = new LinkedList<>();
-        Queue<Integer> speedQueue = new LinkedList<>();
+        initQueue(progresses, speeds);
+
+        return workWithGetDistributionCount();
+    }
+
+    private void initQueue(int[] progresses, int[] speeds) {
 
         for (int i = 0; i < progresses.length; i++){
             progressQueue.add(progresses[i]);
             speedQueue.add(speeds[i]);
         }
+
+    }
+
+    private int[] workWithGetDistributionCount() {
+        List<Integer> results = new ArrayList<>();
 
         while (progressQueue.size() > 0){
             int progresse = progressQueue.peek();
@@ -40,7 +37,6 @@ public class Development {
             int distributionCount = 0;
 
             while (progressQueue.size() > 0){
-
 
                 progresse = progressQueue.peek();
                 speed = speedQueue.peek();
@@ -59,9 +55,8 @@ public class Development {
 
         int[] answer = new int[results.size()];
 
-        for (int i = 0; i < results.size(); i++){
+        for (int i = 0; i < results.size(); i++)
             answer[i] = results.get(i);
-        }
 
         return answer;
     }
