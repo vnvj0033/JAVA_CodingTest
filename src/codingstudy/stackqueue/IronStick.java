@@ -9,18 +9,23 @@ public class IronStick {
     public static void main(String[] args) throws IOException {
 
         char[] sticks = getInputArray();
+        int result = cutStick(sticks);
 
-        int result = 0;
+        System.out.println(result);
+    }
+
+    private static int cutStick(char[] sticks) {
 
         Stack<Character> stickStack = new Stack<>();
+        int result = 0;
 
-        for (int i = 0; i < sticks.length; i++){
+        for (int i = 0; i < sticks.length; i++) {
             if (sticks[i] == '(') {
                 stickStack.add(sticks[i]);
                 continue;
             }
 
-            if (sticks[i-1] == ')') {
+            if (sticks[i - 1] == ')') {
                 stickStack.pop();
                 result++;
                 continue;
@@ -31,7 +36,7 @@ public class IronStick {
                 result += stickStack.size();
             }
         }
-        System.out.println(result);
+        return result;
     }
 
     private static char[] getInputArray() throws IOException {
