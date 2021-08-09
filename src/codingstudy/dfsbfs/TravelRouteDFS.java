@@ -4,50 +4,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TravelRoute {
+public class TravelRouteDFS {
 
     public static void main(String[] args) {
-        TravelRoute tr = new TravelRoute();
-
-
-        String[][] a = new String[][]{{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
-
-        String[] re = tr.solution(a);
-        System.out.println();
-
-        for (String r : re)
-            System.out.println(r);
+        TravelRouteDFS tr = new TravelRouteDFS();
+        String[][] tickets = new String[][]{{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
+        String[] result = tr.solution(tickets);
+        for (String e : result)
+            System.out.println(e);
     }
 
     private List<List<String>> results = new ArrayList();
 
     public String[] solution(String[][] tickets) {
 
-
         for (String[] ticket : tickets) {
             if (!ticket[0].equals("ICN")) continue;
 
-            ArrayList<String[]> ticketsList = new ArrayList(Arrays.asList(tickets));
-            ArrayList<String> routeList = new ArrayList();
+            List<String[]> ticketsList = new ArrayList(Arrays.asList(tickets));
+            List<String> routeList = new ArrayList();
 
             dfs(ticket, ticketsList, routeList);
         }
 
-        String[][] answer = new String[results.size()][results.get(0).size()];
-
-        for (int i = 0; i < results.size(); i++)
-            for (int j = 0; j < results.get(i).size(); j++)
-                answer[i][j] = results.get(i).get(j);
-
-        Arrays.sort(answer, (o1, o2) -> {
-            for (int i = 0; i < o1.length; i++){
-                if (!o1[i].equals(o2[i]))
-                    return o1[i].compareTo(o2[i]);
-            }
-            return 0;
-        });
-
-        return answer[0];
+        return getResult();
     }
 
     private void dfs(String[] currentTicket, List<String[]> ticketsList, List<String> routeList) {
@@ -77,5 +57,23 @@ public class TravelRoute {
             dfs(ticket, clonesOfTickets2, clonesOfRoutes);
         }
 
+    }
+
+    private String[] getResult() {
+        String[][] answer = new String[results.size()][results.get(0).size()];
+
+        for (int i = 0; i < results.size(); i++)
+            for (int j = 0; j < results.get(i).size(); j++)
+                answer[i][j] = results.get(i).get(j);
+
+        Arrays.sort(answer, (o1, o2) -> {
+            for (int i = 0; i < o1.length; i++){
+                if (!o1[i].equals(o2[i]))
+                    return o1[i].compareTo(o2[i]);
+            }
+            return 0;
+        });
+
+        return answer[0];
     }
 }
