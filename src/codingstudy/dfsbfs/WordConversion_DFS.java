@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WordConversion {
+public class WordConversion_DFS {
     public static void main(String[] args) {
-        WordConversion wc = new WordConversion();
+        WordConversion_DFS wc = new WordConversion_DFS();
         String begin = "hit";
         String target = "cog";
         String[] words = new String[]{"hot", "dot", "dog", "lot", "log", "cog"};
@@ -16,7 +16,7 @@ public class WordConversion {
     }
 
     private String target;
-    private int result = 0;
+    private int result = 51;
 
     public int solution(String begin, String target, String[] words) {
         this.target = target;
@@ -24,20 +24,18 @@ public class WordConversion {
         List<String> routeList = new ArrayList<>();
         List<String> wordList = new ArrayList<>(Arrays.asList(words));
 
-        routeList.add(begin);
         dfs(begin, wordList, routeList);
 
+        if (result == 51) result = 0;
         return result;
     }
 
     private void dfs(String begin, List<String> wordList, List<String> routeList) {
+
+
         if (begin.equals(target)) {
 
-            for (String s : routeList)
-                System.out.print(s+" ");
-            System.out.println();
-
-            if (result < routeList.size())
+            if (result > routeList.size())
                 result = routeList.size();
 
             return;
@@ -46,11 +44,11 @@ public class WordConversion {
         wordList.remove(begin);
 
         List<String> newWordList = new ArrayList<>(wordList);
-        List<String> newRouteList = new ArrayList<>(routeList);
 
         for (String word : wordList) {
             if (isOneDifferentChar(begin, word)) {
-                routeList.add(word);
+                List<String> newRouteList = new ArrayList<>(routeList);
+                newRouteList.add(word);
                 dfs(word, newWordList, newRouteList);
             }
         }
