@@ -2,6 +2,10 @@ package codingstudy.dfsbfs;
 
 import java.util.*;
 
+/**
+ * 문제 해결할 점 : 트리의 높이를 구하는 방법이 잘 못되었음
+ * */
+
 public class WordConversion_BFS {
     public static void main(String[] args) {
         WordConversion_BFS wc = new WordConversion_BFS();
