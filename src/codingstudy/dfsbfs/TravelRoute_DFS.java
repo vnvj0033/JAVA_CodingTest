@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TravelRouteDFS {
+public class TravelRoute_DFS {
 
     public static void main(String[] args) {
-        TravelRouteDFS tr = new TravelRouteDFS();
+        TravelRoute_DFS tr = new TravelRoute_DFS();
         String[][] tickets = new String[][]{{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
         String[] result = tr.solution(tickets);
         for (String e : result)
