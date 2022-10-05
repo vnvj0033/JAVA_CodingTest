@@ -19,7 +19,7 @@ public class JewelsAndStones {
     public static void main(String[] args) {
         String J = "aaA!", S = "aAAbacsgbAbAf!@#ba";
 
-        int result = new JewelsAndStones().solve(J, S);
+        int result = new JewelsAndStonesKt().solve(J, S);
 
         System.out.println(result);
     }
