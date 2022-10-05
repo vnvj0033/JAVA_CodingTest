@@ -3,17 +3,14 @@ package string
 class LicenseKeyFormattingKt {
     fun solve(s: String, k: Int): String {
 
+        val sb = StringBuffer()
         val str = s.replace("-", "").uppercase()
-
-        var sb = StringBuffer()
 
         str.reversed().forEachIndexed { index, c ->
             if (index % k == 0) {
                 sb.append("-")
             }
-
             sb.append(c)
-
         }
 
         if (sb[0] == '-') {
