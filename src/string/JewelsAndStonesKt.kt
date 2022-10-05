@@ -11,8 +11,10 @@ class JewelsAndStonesKt {
             set.add(jewel)
         }
 
-        for (jewel in set) {
-            count += stones.count { jewel == it }
+        for (stone in stones) {
+            if (set.contains(stone)) {
+                count++
+            }
         }
 
         return count
@@ -21,9 +23,9 @@ class JewelsAndStonesKt {
 
 fun main() {
 
-    val jewels = "z"
-    val stones = "ZZ"
+    val J = "aaA!"
+    val S = "aAAbacsgbAbAf!@#ba"
 
-    println(JewelsAndStonesKt().solve(jewels, stones))
+    println(JewelsAndStonesKt().solve(J, S))
 
 }
