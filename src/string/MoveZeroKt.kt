@@ -21,12 +21,23 @@ class MoveZeroKt {
 
         return list.toTypedArray()
     }
+
+    fun solve2(nums: Array<Int>): Array<Int> {
+        val array = Array(nums.size) { 0 }
+        var count = 0
+
+        nums.forEach {
+            if (it != 0) array[count++] = it
+        }
+
+        return array
+    }
 }
 
 fun main() {
     val nums = arrayOf(0,3,2,0,8,5)
 
-    MoveZeroKt().solve(nums).forEach {
+    MoveZeroKt().solve2(nums).forEach {
         print("$it, ")
     }
 
