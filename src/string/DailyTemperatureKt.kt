@@ -6,10 +6,7 @@ class DailyTemperatureKt {
 
         nums.forEachIndexed { i1, n1 ->
             for (i2 in i1+1 until nums.size) {
-                val n2 = nums[i2]
-                if (n1 > n2) {
-                    continue
-                } else {
+                if (n1 <= nums[i2]) {
                     result[i1] = i2 - i1
                     break
                 }
