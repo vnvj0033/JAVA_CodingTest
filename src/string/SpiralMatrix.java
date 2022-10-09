@@ -25,8 +25,10 @@ public class SpiralMatrix {
                 {7, 8, 9, 15},
                 {10, 11, 12, 16}};
 
+        long st = System.currentTimeMillis();
         List<Integer> result = new SpiralMatrix().solve(matrix);
         System.out.println(result);
+        System.out.println(System.currentTimeMillis() - st);
     }
 
     List<Integer> solve(int[][] matrix) {

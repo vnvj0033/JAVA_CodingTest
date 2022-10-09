@@ -1,13 +1,9 @@
 package string
 
 class SpiralMatrixKt {
-    fun solve(matrix: Array<Array<Int>>): Array<Int> {
+    fun solve(matrix: ArrayList<ArrayList<Int>>): Array<Int> {
 
-        val list = ArrayList<ArrayList<Int>>()
 
-        matrix.forEach {
-            list.add(ArrayList(it.toList()))
-        }
 
         var move = Move.RIGHT
         val result = ArrayList<Int>()
@@ -16,26 +12,26 @@ class SpiralMatrixKt {
 
             when (move) {
                 Move.RIGHT -> {
-                    result.addAll(list.first())
-                    list.removeFirst()
+                    result.addAll(matrix.first())
+                    matrix.removeFirst()
                     move = Move.DOWN
                 }
                 Move.DOWN -> {
-                    list.forEach {
+                    matrix.forEach {
                         result.add(it.last())
                         it.removeLast()
                     }
                     move = Move.LEFT
                 }
                 Move.LEFT -> {
-                    result.addAll(list.last().reversed())
-                    list.removeLast()
+                    result.addAll(matrix.last().reversed())
+                    matrix.removeLast()
                     move = Move.UP
                 }
                 Move.UP -> {
-                    for (i2 in list.size-1 downTo 0) {
-                        result.add(list[i2].first())
-                        list[i2].removeFirst()
+                    for (i2 in matrix.size-1 downTo 0) {
+                        result.add(matrix[i2].first())
+                        matrix[i2].removeFirst()
                     }
                     move = Move.RIGHT
                 }
@@ -62,8 +58,15 @@ fun main() {
         arrayOf(9, 10, 11, 12),
         arrayOf(13,14,15,16))
 
-    println()
-    SpiralMatrixKt().solve(matrix).forEach {
+val list = ArrayList<ArrayList<Int>>()
+    matrix.forEach {
+        list.add(ArrayList(it.toList()))
+    }
+
+    val st = System.currentTimeMillis()
+    SpiralMatrixKt().solve(list).forEach {
         print("$it, ")
     }
+    println()
+    println(System.currentTimeMillis() - st)
 }
